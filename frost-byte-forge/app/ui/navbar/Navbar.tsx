@@ -33,7 +33,7 @@ const Navbar = () => {
             <h3>Past Orders</h3>
           </a>
           <Link
-            href={`/parts/add`}
+            href={`/parts`}
             className={
               usePathname().includes("/parts") &&
               usePathname() != `/parts/recent`
