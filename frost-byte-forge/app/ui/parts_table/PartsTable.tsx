@@ -1,5 +1,10 @@
 "use client";
-import { DataGrid, GridColDef, useGridApiRef } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColDef,
+  GridRowModel,
+  GridValidRowModel,
+} from "@mui/x-data-grid";
 import React from "react";
 import StyledPaper from "../styled_paper/StyledPaper";
 import { RecordModel } from "pocketbase";
@@ -8,6 +13,10 @@ import { Autocomplete, TextField } from "@mui/material";
 interface PartsTableProps {
   parts: RecordModel[];
   descriptionOptions: RecordModel[];
+  processRowUpdate: (
+    newRow: GridRowModel,
+    oldRow: GridRowModel
+  ) => GridValidRowModel;
 }
 
 const PartsTable = (props: PartsTableProps) => {
@@ -94,6 +103,10 @@ const PartsTable = (props: PartsTableProps) => {
         columns={columns}
         pageSizeOptions={[25, 50, 100]}
         editMode="row"
+        processRowUpdate={props.processRowUpdate}
+        onProcessRowUpdateError={(error) => {
+          console.error(error);
+        }}
       />
     </StyledPaper>
   );
