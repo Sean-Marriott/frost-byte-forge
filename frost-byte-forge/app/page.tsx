@@ -1,6 +1,8 @@
+"use client";
 import Grid from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
 import DashboardAnalytics from "./ui/analytics/DashboardAnalytics";
+import Sidebar from "./ui/sidebar/Sidebar";
 
 export default function Home() {
   return (
@@ -24,7 +26,7 @@ export default function Home() {
         </Stack>
       </Grid>
       <Grid xs sx={{ mt: 2 }}>
-        {/* <Sidebar /> */}
+        <Sidebar />
       </Grid>
     </Grid>
   );
