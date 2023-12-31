@@ -36,12 +36,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Grid
-          container
-          rowSpacing={2}
-          width="100%"
-          sx={{ border: 1, p: 2, mt: 2 }}
-        >
+        <Grid container rowSpacing={2} width="100%" sx={{ p: 2, mt: 2 }}>
           <Grid container xs={6}>
             <Stack
               direction="row"

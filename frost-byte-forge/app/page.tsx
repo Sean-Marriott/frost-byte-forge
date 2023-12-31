@@ -4,6 +4,7 @@ import Stack from "@mui/material/Stack";
 import DashboardAnalytics from "./ui/analytics/DashboardAnalytics";
 import Sidebar from "./ui/sidebar/Sidebar";
 import CurrentListings from "./ui/current_listings/CurrentListings";
+import RecentOrders from "./ui/recent_orders/RecentOrders";
 
 export default function Home() {
   return (
@@ -22,7 +23,9 @@ export default function Home() {
           </Stack>
           <Stack spacing={2}>
             <h2>Recent Orders</h2>
-            <div className="recent-orders">{/* <RecentOrders /> */}</div>
+            <div className="recent-orders">
+              <RecentOrders />
+            </div>
           </Stack>
         </Stack>
       </Grid>
