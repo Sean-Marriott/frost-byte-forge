@@ -38,10 +38,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <Grid
           container
-          justifyContent="center"
           rowSpacing={2}
           width="100%"
-          sx={{ border: 1, p: 2 }}
+          sx={{ border: 1, p: 2, mt: 2 }}
         >
           <Grid container xs={6}>
             <Stack
