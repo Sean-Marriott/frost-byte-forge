@@ -1,15 +1,19 @@
 "use client";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, useGridApiRef } from "@mui/x-data-grid";
 import React from "react";
 import StyledPaper from "../styled_paper/StyledPaper";
 import { RecordModel } from "pocketbase";
+import { Autocomplete, TextField } from "@mui/material";
 
 interface PartsTableProps {
   parts: RecordModel[];
+  descriptionOptions: RecordModel[];
 }
 
 const PartsTable = (props: PartsTableProps) => {
   const parts = props.parts;
+  const descriptionOptions = props.descriptionOptions;
+
   const columns: GridColDef[] = [
     {
       field: "name",
@@ -22,6 +26,29 @@ const PartsTable = (props: PartsTableProps) => {
       headerName: "Description",
       flex: 1,
       editable: true,
+      renderCell: (params) => {
+        return params.value;
+      },
+      renderEditCell: (params) => {
+        return (
+          <Autocomplete
+            fullWidth
+            freeSolo={true}
+            value={params.value}
+            options={descriptionOptions}
+            renderInput={(params) => <TextField {...params} />}
+            onChange={(event, newValue) => {
+              if (newValue) {
+                params.api.setEditCellValue({
+                  id: params.id,
+                  field: params.field,
+                  value: newValue,
+                });
+              }
+            }}
+          />
+        );
+      },
     },
     {
       field: "condition",
@@ -66,6 +93,7 @@ const PartsTable = (props: PartsTableProps) => {
         rows={parts}
         columns={columns}
         pageSizeOptions={[25, 50, 100]}
+        editMode="row"
       />
     </StyledPaper>
   );
