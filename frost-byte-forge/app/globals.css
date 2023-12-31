@@ -336,6 +336,7 @@ table tbody tr:last-child td {
 
 .nav button {
   display: none;
+  border: 0;
 }
 
 .dark-mode {
