@@ -3,6 +3,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
 import DashboardAnalytics from "./ui/analytics/DashboardAnalytics";
 import Sidebar from "./ui/sidebar/Sidebar";
+import CurrentListings from "./ui/current_listings/CurrentListings";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
           </Stack>
           <Stack spacing={2}>
             <h2>Current Listings</h2>
-            {/* <PcShowcase /> */}
+            <CurrentListings />
           </Stack>
           <Stack spacing={2}>
             <h2>Recent Orders</h2>

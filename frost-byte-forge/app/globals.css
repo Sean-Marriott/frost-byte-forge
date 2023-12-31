@@ -52,10 +52,6 @@ a {
   color: var(--color-dark);
 }
 
-p {
-  margin: 0;
-}
-
 img {
   display: block;
   width: 100%;
@@ -70,6 +66,7 @@ h1 {
 h2 {
   font-weight: 600;
   font-size: 1.4rem;
+  margin: 0;
 }
 
 h3 {
@@ -83,6 +80,7 @@ small {
 
 p {
   color: var(--color-dark-variant);
+  margin: 0;
 }
 
 b {
